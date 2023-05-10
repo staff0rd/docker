@@ -5,7 +5,8 @@ on:
     branches:
       - "main"
     paths:
-      - "vlad-automatic"
+      - "vlad-automatic/**"
+      - ".github/workflows/vlad-automatic.yml"
 
 jobs:
   docker:
