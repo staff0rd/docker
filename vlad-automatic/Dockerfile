@@ -16,7 +16,6 @@ RUN python installer.py
 RUN mkdir models/Stable-diffusion
 WORKDIR /workspace
 
-RUN wget https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors -O /workspace/automatic/models/Stable-diffusion/v1-5-pruned-emaonly.safetensors
 RUN wget https://civitai.com/api/download/models/46846 -O /workspace/automatic/models/Stable-diffusion/rev-animated.safetensors
 
 RUN mkdir automatic/models/VAE
@@ -26,14 +25,20 @@ RUN mkdir /workspace/automatic/models/ESRGAN
 RUN wget https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth -O /workspace/automatic/models/ESRGAN/4x-UltraSharp.pth
 
 WORKDIR /workspace/automatic/extensions
-RUN git clone https://github.com/ilian6806/stable-diffusion-webui-state
 RUN git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
+RUN git clone https://github.com/danielgatis/rembg
+RUN git clone https://github.com/yankooliveira/sd-webui-photopea-embed
+RUN git clone https://github.com/hako-mikan/sd-webui-regional-prompter
+RUN git clone https://github.com/fkunn1326/openpose-editor
 
 RUN mkdir /workspace/automatic/models/embeddings
 WORKDIR /workspace/automatic/models/embeddings
 
 RUN wget https://civitai.com/api/download/models/9208 -O easynegative.safetensors
 RUN wget https://huggingface.co/yesyeahvh/bad-hands-5/resolve/main/bad-hands-5.pt
+RUN wget https://civitai.com/api/download/models/77173 -O UnrealisticDream.pt
+RUN wget https://civitai.com/api/download/models/77169 -O BadDream.pt
+RUN wget https://civitai.com/api/download/models/76712 -O FastNegativeEmbedding.pt
 
 WORKDIR /workspace/automatic/extensions-builtin/sd-webui-controlnet
 RUN git pull
