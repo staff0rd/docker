@@ -30,9 +30,10 @@ RUN git clone https://github.com/danielgatis/rembg
 RUN git clone https://github.com/yankooliveira/sd-webui-photopea-embed
 RUN git clone https://github.com/hako-mikan/sd-webui-regional-prompter
 RUN git clone https://github.com/fkunn1326/openpose-editor
+RUN git clone https://github.com/adieyal/sd-dynamic-prompts
 
 RUN mkdir /workspace/automatic/models/embeddings
-WORKDIR /workspace/automatic/models/embeddings
+WORKDIR /workspace/automatic/models/embed dings
 
 RUN wget https://civitai.com/api/download/models/9208 -O easynegative.safetensors
 RUN wget https://huggingface.co/yesyeahvh/bad-hands-5/resolve/main/bad-hands-5.pt
@@ -44,8 +45,11 @@ WORKDIR /workspace/automatic/extensions-builtin/sd-webui-controlnet
 RUN git pull
 
 WORKDIR /workspace/automatic
-RUN git pull
 COPY ./styles.csv /workspace/automatic/styles.csv
+COPY ./start.sh /workspace/automatic/start.sh
+RUN chmod +x ./start.sh
+RUN git pull
+RUN python installer.py
 
 WORKDIR /workspace
 
