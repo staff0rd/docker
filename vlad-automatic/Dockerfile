@@ -40,6 +40,8 @@ RUN wget https://huggingface.co/yesyeahvh/bad-hands-5/resolve/main/bad-hands-5.p
 RUN wget https://civitai.com/api/download/models/77173 -O UnrealisticDream.pt
 RUN wget https://civitai.com/api/download/models/77169 -O BadDream.pt
 RUN wget https://civitai.com/api/download/models/76712 -O FastNegativeEmbedding.pt
+RUN wget https://civitai.com/api/download/models/5637 -O /workspace/automatic/models/embeddings/ng_deepnegative_v1_75t.pt
+RUN wget https://huggingface.co/zylux/orangechillmix/resolve/main/badhandsv5-neg.pt -O /workspace/automatic/models/embeddings/badhandsv5-neg.pt
 
 WORKDIR /workspace/automatic/extensions-builtin/sd-webui-controlnet
 RUN git pull
