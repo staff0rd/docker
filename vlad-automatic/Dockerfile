@@ -33,7 +33,7 @@ RUN git clone https://github.com/fkunn1326/openpose-editor
 RUN git clone https://github.com/adieyal/sd-dynamic-prompts
 
 RUN mkdir /workspace/automatic/models/embeddings
-WORKDIR /workspace/automatic/models/embed dings
+WORKDIR /workspace/automatic/models/embeddings
 
 RUN wget https://civitai.com/api/download/models/9208 -O easynegative.safetensors
 RUN wget https://huggingface.co/yesyeahvh/bad-hands-5/resolve/main/bad-hands-5.pt
